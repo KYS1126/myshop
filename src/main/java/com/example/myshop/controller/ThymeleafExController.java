@@ -82,6 +82,18 @@ public class ThymeleafExController {
 		return "thymeleafEx/thymeleafEx05";
 	}
 	
+	@GetMapping(value = "/ex06")
+	public String thymeleafEx06(String param1, String param2, Model model) { //링크에서 데이터 받는법
+		System.out.println(param1 + "," + param2);
+		model.addAttribute("param1",param1);  //링크에서 준걸 받아서 모델에 넣어주고 보내준다.
+		model.addAttribute("param2",param2);
+		
+		return "thymeleafEx/thymeleafEx06";
+	}
 	
+	@GetMapping(value = "/ex07") //페이지만 띄우는 역할
+	public String thymeleafEx07(Model model) { //setAttribute와 같은 역할!!!!
+		return "thymeleafEx/thymeleafEx07";
+	}
 	
 }
