@@ -21,6 +21,7 @@ import org.springframework.test.context.event.annotation.PrepareTestInstance;
 
 import com.example.myshop.constant.ItemSellStatus;
 import com.example.myshop.entity.Item;
+import com.example.myshop.entity.Member;
 import com.example.myshop.entity.QItem;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryFactory;
@@ -196,7 +197,7 @@ class ItemRepositoryTest {
 		}
 	}
 	*/
-	
+	@Test
 	@DisplayName("@Query를 이용한 상품 조회 테스트")
 	public void findByItemDetailTest() {
 		this.createItemTest();
@@ -205,6 +206,18 @@ class ItemRepositoryTest {
 			System.out.println(item.toString());
 		}
 	}
+	
+	@Test
+	@DisplayName("@Query를 이용한 상품 조회 테스트")
+	public void findByItemDetailTest11() {
+		this.createItemTest();
+		List<Item> itemList = itemRepository.findByItemDetail("테스트 상품 상세설명");
+		for (Item item : itemList) {
+			System.out.println(item.toString());
+		}
+	}
+	
+	
 	@DisplayName("@native Query를 이용한 상품 조회 테스트")
 	public void findByItemDetailByNativeTest() {
 		this.createItemTest();
@@ -255,7 +268,6 @@ class ItemRepositoryTest {
 		}
 	}
 	
-	@Test
 	@DisplayName("querydsl 조회 테스트")
 	public void queryDslTest3() {
 		this.createItemTest2();
@@ -361,7 +373,6 @@ class ItemRepositoryTest {
 			System.out.println(item.toString());
 		}
 	}
-	
 	@DisplayName("querydsl 퀴즈 5번")
 	public void queryDslQ5Test() {
 		this.createItemTest();
@@ -375,6 +386,15 @@ class ItemRepositoryTest {
 		for (Item item : itemList) {
 			System.out.println(item.toString());
 		}
+	}
+	
+	@DisplayName("연습 예제")
+	public void createItemTest00() {
+			Member member = new Member();
+			member.setName("김용수");
+			member.setAge("1");
+			member.setGender("남자");
+			member.setJob("학생");
 	}
 	
 }

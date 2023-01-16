@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- th : 타임리프 변수명 -->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>카페 메뉴</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>상품명</td>
+				<td>가격</td>
+				<td>상품설명</td>
+			</tr>
+		</thead>
+		<tr>
+			<td th:text="${itemDto1.itemNm}"></td>
+			<td th:text="${itemDto1.price}"></td>
+			<td><a th:href="@{/thymeleaf/ex09(itemDto = ${itemDto1})}">보기</a></td>
+		</tr>
+		<tr>
+			<td th:text="${itemDto2.itemNm}"></td>
+			<td th:text="${itemDto2.price}"></td>
+			<td><a th:href="@{/thymeleaf/ex09(itemDto = ${itemDto2})}">보기</a></td>
+		</tr>
+		<tr>
+			<td th:text="${itemDto3.itemNm}"></td>
+			<td th:text="${itemDto3.price}"></td>
+			<td><a th:href="@{/thymeleaf/ex09(itemDto = ${itemDto3})}">보기</a></td>
+		</tr>
+		<tr>
+			<td th:text="${itemDto4.itemNm}"></td>
+			<td th:text="${itemDto4.price}"></td>
+			<td><a th:href="@{/thymeleaf/ex09(itemDto = ${itemDto4})}">보기</a></td>
+		</tr>
+		<tr>
+			<td th:text="${itemDto5.itemNm}"></td>
+			<td th:text="${itemDto5.price}"></td>
+			<td><a th:href="@{/thymeleaf/ex09(itemDto = ${itemDto5})}">보기</a></td>
+		</tr>
+		<taber>
+</body>
+</html>

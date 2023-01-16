@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<!--  -->
+<!-- layouts/layout1 이쪽 경로에 현재 html의 내용을 넣어주겠다. 컨텐츠 div에 넣어주겠다. -->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- layouts/layout1의 컨텐츠 영역의 이름을 써주면 해당 html이 들어간다. -->
+	<div layout:fragment="content">메인페이지 입니다.</div>
+</body>
+</html>
