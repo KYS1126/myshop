@@ -3,6 +3,7 @@ package com.example.myshop.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -34,7 +35,23 @@ public class SecurityConfig{
 		.logoutRequestMatcher(new AntPathRequestMatcher("/members/logout")) //로그아웃 url 지정
 		.logoutSuccessUrl("/"); //로그아웃 성공시 이동할 url 지정
 		
+		//페이지의 접근에 관한 설정
+		
+		
+		http.authorizeRequests()
+	    .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
+	    .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll() //모든 사용자가 로그인(인증) 없이 접근할 수 있도록 설정
+	    .mvcMatchers("/admin/**").hasRole("ADMIN") // '/admin' 으로 시작하는 경로는 계정이 ADMIN role일 경우에만 접근 가능하도록 설정
+	    .anyRequest().authenticated(); //그 외에 페이지는 모두 로그인(인증)을 받아야 한다.
+		
+		
+		
+		//인증되지 않은 사용자가 리소스(페이지, 이미지 등...)에 접근했을때 설정
+		http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());//CustomAuthenticationEntryPoint 클래스에서 commence 메소드를 실행한다.
+		
+		
 		return http.build();
+		
 		
 	}
 	

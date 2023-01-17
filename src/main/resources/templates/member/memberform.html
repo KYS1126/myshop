@@ -13,12 +13,12 @@
 	<script th:inline="javascript">
 	//자바 스크립트로 에러 메세지 띄우기
 	//회원가입이 실패했을때
-		$(document).ready(function{
-			var errorMessage = [[${errorMessage}]];
-			if(errorMessage != null) {
-				alert(errorMessage);
-			}
-		})
+		$(document).ready(function(){
+        	var errorMessage = [[${errorMessage}]];
+        	if(errorMessage != null){
+            	alert(errorMessage);
+        	}
+    	});
 	</script>
 </th:block>
 
@@ -36,7 +36,7 @@
 	<!-- layouts/layout1의 컨텐츠 영역의 이름을 써주면 해당 html이 들어간다. -->
 	<div layout:fragment="content">
 		<!-- 컨트롤러 중에 post로 받는 메소드로 간다. -->
-		<form class="row g-3" action="/members/new" method="post"	th:object="${memberFormDto}">
+		<form class="row g-3" role="form" action="/members/new" method="post" th:object="${memberFormDto}">
 			<div>
 			<!-- th:for 와 th:field 의 값이 같이야 memberFormDto 에 잘 담겨서 들어감 -->
 			<!-- th:field 각 필드들을 매핑을 해주는 역할을 한다. -->
@@ -59,11 +59,11 @@
 				<input type="text" th:field="*{address}" class="form-control-plaintext" placeholder="주소를 입력해 주세요.">
 				<p th:if = "${#fields.hasErrors('address')}" th:errors="*{address}" class="fieldError">Incorrect Data</p>
 			</div>
-			<div class="col-auto">
+			<div>
 				<button type="submit" class="btn btn-primary mb-3">회원가입</button>
 			</div>
 			<!-- 해킹방지 토큰, 인증 토큰 -->
-			<!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> -->
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 		</form>
 	</div>
 </body>
