@@ -41,22 +41,23 @@
 			<!-- th:for 와 th:field 의 값이 같이야 memberFormDto 에 잘 담겨서 들어감 -->
 			<!-- th:field 각 필드들을 매핑을 해주는 역할을 한다. -->
 				<label th:for="name" >이름</label> 
-				<input type="text" th:field="*{name}" class="form-control-plaintext" placeholder="이름을 입력해주세요.">
+				<input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력해주세요.">
 				<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect Data</p>
 			</div>
+	
 			<div>
 				<label th:for="email" >이메일주소</label> 
-				<input type="email" th:field="*{email}" class="form-control-plaintext" placeholder="이메일을 입력해주세요.">
+				<input type="email" th:field="*{email}" class="form-control" placeholder="이메일을 입력해주세요.">
 				<p th:if = "${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect Data</p>
 			</div>
 			<div>
 				<label th:for="password" >비밀번호</label> 
-				<input type="password" th:field="*{password}" class="form-control-plaintext" placeholder="비밀번호를 입력해 주세요.">
+				<input type="password" th:field="*{password}" class="form-control" placeholder="비밀번호를 입력해 주세요.">
 				<p th:if = "${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">Incorrect Data</p>
 			</div>
 			<div>
 				<label th:for="address" >주소</label> 
-				<input type="text" th:field="*{address}" class="form-control-plaintext" placeholder="주소를 입력해 주세요.">
+				<input type="text" th:field="*{address}" class="form-control" placeholder="주소를 입력해 주세요.">
 				<p th:if = "${#fields.hasErrors('address')}" th:errors="*{address}" class="fieldError">Incorrect Data</p>
 			</div>
 			<div>
