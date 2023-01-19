@@ -13,7 +13,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Item {
+public class Item extends BaseEntity{
 	
 	//not null이 아닐때는 필드(예 int - Integer) 타입을 객체로 지정해야 한다.
 	
@@ -39,9 +39,6 @@ public class Item {
 	@Enumerated(EnumType.STRING) //이름 그대로를 저장한다. EnumType.ORDINAL = 인덱스 번호로 저장한다
 	private ItemSellStatus itemSellStatus; //상품 판매상태
 	
-	private LocalDateTime regTime; //등록 시간
-	
-	private LocalDateTime updateTime; //수정 시간
 	
 	
 	
