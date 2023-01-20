@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
+import com.example.myshop.DTO.ItemFormDto;
 import com.example.myshop.constant.ItemSellStatus;
 
 import lombok.*;
@@ -39,7 +40,13 @@ public class Item extends BaseEntity{
 	@Enumerated(EnumType.STRING) //이름 그대로를 저장한다. EnumType.ORDINAL = 인덱스 번호로 저장한다
 	private ItemSellStatus itemSellStatus; //상품 판매상태
 	
-	
+	public void updateItem(ItemFormDto itemFormDto) {
+		this.itemNm = itemFormDto.getItemNm();
+		this.price = itemFormDto.getPrice();
+		this.stockNumber = itemFormDto.getStockNumber();
+		this.itemDetail = itemFormDto.getItemDetail();
+		this.itemSellStatus = itemFormDto.getItemSellStatus();
+	}
 	
 	
 	

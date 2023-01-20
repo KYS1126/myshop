@@ -31,7 +31,7 @@ public class FileService {
 	
 	}
 	//파일 삭제
-	public void uploadFile(String filePath) throws Exception {
+	public void deleteFile(String filePath) throws Exception {
 		File deletFile = new File(filePath); //파일이 저장된 경로를 이용해서 파일 객체를 생성
 		
 		if (deletFile.exists()) { //해당 경로에 파일이 있으면 (ture를 리턴)

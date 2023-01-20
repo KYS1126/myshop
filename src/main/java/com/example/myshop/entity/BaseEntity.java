@@ -20,7 +20,7 @@ public class BaseEntity extends BaseTimeEntity{
 	
 	@CreatedBy
 	@Column(updatable = false)//이 컬럼은 수정이 안된다는 설정
-	private String createBy; //등록자
+	private String createdBy; //등록자
 	
 	
 	@LastModifiedBy
